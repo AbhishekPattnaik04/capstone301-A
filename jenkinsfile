@@ -6,7 +6,6 @@ node {
   stage('Git-Checkout') {
    git 'https://github.com/AbhishekPattnaik04/capstone301-A.git'
   }
-
     
   stage('Maven-Clean') {
    sh label: '', script: 'mvn clean'
@@ -45,21 +44,6 @@ node {
         
         }
      
-    stage('Jfrog Artifactory download'){
-    def server= Artifactory.server 'Artifactory'
-    def downloadSpec = """{
-    "files": [
-    {
-      "pattern": "Kalingamusic/*.war",
-      "target": "/home/mtadminnuvepro/artifacts/"
-      
-    }
-    ]
-    }"""
-    server.download(downloadSpec)
-    
-}
-
    stage('Input for deploy in test server'){
    input('Do you want to proceed?')
    }
