@@ -6,11 +6,7 @@ node {
   stage('Git-Checkout') {
    git 'https://github.com/AbhishekPattnaik04/capstone301-A.git'
   }
-    
- def project_path=""
- 
- dir(project_path) {
-    
+        
   stage('Maven-Clean') {
    sh label: '', script: 'mvn clean'
   }
@@ -32,11 +28,7 @@ node {
    stage('Maven-Package') {
    sh label: '', script: 'mvn package'
   }
-  
-   stage('Archive-Artifacts') {
-   archiveArtifacts 'target/*.war'
-  }
-  
+
    stage('Jfrog Artifacory Upload') {
         def server= Artifactory.server 'Artifactory'
                     def uploadSpec= """{
