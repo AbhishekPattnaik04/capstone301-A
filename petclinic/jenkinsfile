@@ -33,7 +33,7 @@ node {
    stage('Maven-Package') {
    sh label: '', script: 'mvn package'
   }
-}
+
    stage('Jfrog Artifacory Upload') {
         def server= Artifactory.server 'Artifactory'
                     def uploadSpec= """{
@@ -44,7 +44,7 @@ node {
         server.upload(uploadSpec)
 
         }
-	
+}	
 
 notify('Job Completed')   
 } catch (err) {
