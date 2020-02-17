@@ -7,7 +7,7 @@ node {
    git branch:'qa_server', url:'https://github.com/AbhishekPattnaik04/capstone301-A.git'
   }
     
- def project_path=""
+ def project_path="petclinic/"
  
  dir(project_path) {
     
