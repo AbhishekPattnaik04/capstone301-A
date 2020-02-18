@@ -61,7 +61,7 @@ node {
   } 
   
   stage('Pushing DockerImage to DockerHub') {
-	  docker.withRegistry('', 'abhishek-dockerhub' ) {
+	  docker.withRegistry('', 'abhishek-docker' ) {
 		    sh label: '', script: 'docker push abhishekpattnaik004/petclinic:$BUILD_NUMBER'
 		  }
    
