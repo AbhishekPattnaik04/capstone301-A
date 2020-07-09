@@ -7,3 +7,5 @@ services:
     image: abhishekpattnaik004/petclinic:$BUILD_NUMBER
     ports:
       - '30080:8080'
+    volumes:
+      -  
