@@ -2,10 +2,19 @@ version: '2'
 
 
 services:
+   mysql:
+    image: mysql:5.7.15
+    ports:
+      - '3306:3306'
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD= root
+    restart: always
   petclinic:
     build: . 
     image: abhishekpattnaik004/petclinic:$BUILD_NUMBER
     ports:
       - '30080:8080'
-    volumes:
-      -  
+    links:
+      - mysql
